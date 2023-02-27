@@ -24,7 +24,7 @@ sudo make install
 ``` shell
 cd breakpad
 mkdir build && cd build  
-make
+cmake .. && make
 ```
 2.Generate symbol file  
 
