@@ -12,4 +12,4 @@ include_directories(
 
 add_executable(breakpad_samples src/main.cpp)
 
-target_link_libraries(breakpad_samples breakpad_client pthread)
+target_link_libraries(breakpad_samples breakpad_client pthread glog)
