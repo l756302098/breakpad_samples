@@ -1,6 +1,7 @@
 #include "client/linux/handler/exception_handler.h"
 #include <iostream>
 #include <glog/logging.h>
+#include "../include/math.h"
 
 static const char* EXE_NAME = "breakpad_samples";
 static void FailureHandle(const char* data, int size) {
@@ -15,11 +16,7 @@ static bool dumpCallback(const google_breakpad::MinidumpDescriptor& descriptor,
     LOG(INFO) << "Dump path:" << descriptor.path();
     return succeeded;
 }
-void crash()
-{
-    int* a = nullptr;
-    *a = 1;
-}
+
 int main(int argc, char* argv[])
 {
     //glog
@@ -32,7 +29,8 @@ int main(int argc, char* argv[])
     google_breakpad::ExceptionHandler eh(descriptor, nullptr, dumpCallback, nullptr, true, -1);
     try
     {
-        crash();
+        math m;
+        m.add(1,2);
     }
     catch(const std::exception& e)
     {
